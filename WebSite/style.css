@@ -1,0 +1,869 @@
+/* ============================================
+   InAmigos Foundation – Awareness Page Styles
+   Made by: [Your Name] | Intern Task 1
+   Last edited: May 2025
+   NOTE: some parts are still a bit rough,
+   will clean up spacing later if time permits
+   ============================================ */
+
+/* ---------- RESET (basic) ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ---------- COLOURS I'm using ---------- */
+:root {
+  --main-green: #1e6641;
+  --light-green: #d4edda;
+  --dark-green: #143a22;
+  --gold: #c9973a;
+  --light-gold: #f5e9cc;
+  --bg: #faf7f2;
+  --white: #ffffff;
+  --text: #222222;
+  --grey: #666666;
+}
+
+/* ---------- BODY ---------- */
+body {
+  font-family: Georgia, serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* I found scroll-behavior: smooth on MDN, it's nice */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ==========================================
+   NAVBAR
+   ========================================== */
+nav {
+  background-color: #ffffff;
+  border-bottom: 2px solid var(--main-green);
+  padding: 14px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  /* tried box-shadow here, looks cleaner */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--main-green);
+  text-decoration: none;
+  letter-spacing: 0.5px;
+}
+
+.logo span {
+  color: var(--gold);
+}
+
+/* nav links - put them in a row */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 28px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #444;
+  font-size: 0.95rem;
+  font-family: Arial, sans-serif;
+}
+
+.nav-links a:hover {
+  color: var(--main-green);
+  text-decoration: underline;
+}
+
+/* donate button in nav */
+.nav-donate {
+  background-color: var(--main-green);
+  color: white;
+  padding: 9px 22px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+}
+
+.nav-donate:hover {
+  background-color: #27854f;
+}
+
+/* ==========================================
+   HERO SECTION
+   ========================================== */
+#hero {
+  background-color: var(--dark-green);
+  /* added an overlay on top of the background image */
+  background-image: linear-gradient(
+      rgba(14, 40, 24, 0.82),
+      rgba(14, 40, 24, 0.82)
+    ),
+    url('Inamigos_hero.jpeg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  padding: 110px 20px 90px;
+}
+
+.hero-tag {
+  display: inline-block;
+  background-color: rgba(201, 151, 58, 0.22);
+  border: 1px solid var(--gold);
+  color: #f0cc70;
+  font-size: 0.75rem;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  padding: 5px 16px;
+  border-radius: 40px;
+  margin-bottom: 22px;
+  font-family: Arial, sans-serif;
+}
+
+#hero h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  line-height: 1.25;
+  margin-bottom: 18px;
+  /* wasn't sure about clamp() at first but it helps on mobile */
+  font-size: clamp(2rem, 5.5vw, 3.6rem);
+}
+
+#hero h1 .highlight {
+  color: var(--gold);
+}
+
+#hero p {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 580px;
+  margin: 0 auto 36px;
+  font-family: Arial, sans-serif;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.btn-main {
+  background-color: var(--gold);
+  color: #111;
+  padding: 13px 32px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 0.95rem;
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+}
+
+.btn-main:hover {
+  background-color: #b8842a;
+}
+
+.btn-border {
+  border: 2px solid rgba(255, 255, 255, 0.65);
+  color: white;
+  padding: 11px 30px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+}
+
+.btn-border:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ==========================================
+   STATS ROW
+   ========================================== */
+.stats-row {
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #ddd;
+}
+
+.stat-box {
+  padding: 28px 44px;
+  text-align: center;
+  border-right: 1px solid #eee;
+  flex: 1;
+  min-width: 130px;
+}
+
+.stat-box:last-child {
+  border-right: none;
+}
+
+.stat-number {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: var(--main-green);
+  font-family: Georgia, serif;
+}
+
+.stat-number sup {
+  font-size: 1rem;
+  color: var(--gold);
+}
+
+.stat-desc {
+  font-size: 0.78rem;
+  color: var(--grey);
+  margin-top: 5px;
+  font-family: Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ==========================================
+   SECTION SHARED STYLES
+   ========================================== */
+section {
+  padding: 72px 20px;
+}
+
+/* little pill label above headings */
+.label {
+  display: inline-block;
+  background-color: var(--light-green);
+  color: var(--main-green);
+  font-size: 0.72rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 4px 13px;
+  border-radius: 40px;
+  margin-bottom: 12px;
+  font-family: Arial, sans-serif;
+}
+
+.section-heading {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 12px;
+  font-family: Georgia, serif;
+  line-height: 1.3;
+}
+
+.section-heading .accent {
+  color: var(--main-green);
+}
+
+.section-sub {
+  font-size: 0.97rem;
+  color: var(--grey);
+  max-width: 500px;
+  font-family: Arial, sans-serif;
+  line-height: 1.75;
+}
+
+/* ==========================================
+   ABOUT SECTION
+   ========================================== */
+#about {
+  background-color: #ffffff;
+}
+
+.about-wrapper {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: flex;
+  gap: 60px;
+  align-items: center;
+  flex-wrap: wrap; /* so it stacks on mobile */
+}
+
+.about-image-side {
+  flex: 1;
+  min-width: 280px;
+  position: relative;
+}
+
+.about-image-side img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  /* added drop shadow to look nicer */
+  box-shadow: 4px 6px 22px rgba(0, 0, 0, 0.15);
+}
+
+/* small floating badge on image */
+.img-badge {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  background-color: var(--main-green);
+  color: white;
+  padding: 8px 15px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  line-height: 1.5;
+  font-family: Arial, sans-serif;
+}
+
+.about-text-side {
+  flex: 1;
+  min-width: 280px;
+}
+
+.about-text-side p {
+  font-size: 0.97rem;
+  color: var(--grey);
+  margin-bottom: 14px;
+  font-family: Arial, sans-serif;
+  line-height: 1.8;
+}
+
+/* certification badges */
+.cert-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 22px;
+}
+
+.cert-pill {
+  background-color: var(--light-gold);
+  color: #7a5510;
+  padding: 5px 13px;
+  border-radius: 40px;
+  font-size: 0.73rem;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+}
+
+/* ==========================================
+   QUOTE / FOUNDER SECTION
+   I added this extra bit myself – thought it
+   would make the page feel more personal
+   ========================================== */
+#quote-section {
+  background-color: var(--light-green);
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.quote-box {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.big-quote {
+  font-size: 2.8rem;
+  color: var(--main-green);
+  line-height: 1;
+  margin-bottom: 10px;
+  font-family: Georgia, serif;
+}
+
+.quote-text {
+  font-size: 1.15rem;
+  font-style: italic;
+  color: #2a4a35;
+  line-height: 1.75;
+  margin-bottom: 16px;
+  font-family: Georgia, serif;
+}
+
+.quote-author {
+  font-size: 0.88rem;
+  color: var(--main-green);
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  letter-spacing: 0.5px;
+}
+
+/* ==========================================
+   PROJECTS SECTION
+   ========================================== */
+#projects {
+  background-color: var(--bg);
+}
+
+.projects-top {
+  max-width: 1080px;
+  margin: 0 auto 44px;
+}
+
+.cards-grid {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* project card */
+.card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.07);
+  /* simple transition – learned this from a YouTube tutorial */
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.card img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  display: block;
+}
+
+.card-body {
+  padding: 22px;
+}
+
+.card-icon {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.card-body h3 {
+  font-size: 1.05rem;
+  font-family: Georgia, serif;
+  margin-bottom: 8px;
+}
+
+.card-body p {
+  font-size: 0.88rem;
+  color: var(--grey);
+  font-family: Arial, sans-serif;
+  line-height: 1.65;
+}
+
+.card-tag {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: 0.72rem;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  padding: 3px 11px;
+  border-radius: 40px;
+}
+
+/* each project gets its own colour tag */
+.tag-green { background-color: var(--light-green); color: var(--main-green); }
+.tag-blue  { background-color: #dbeafe; color: #1e40af; }
+.tag-pink  { background-color: #fce7f3; color: #9d174d; }
+.tag-teal  { background-color: #ccfbf1; color: #0f766e; }
+.tag-amber { background-color: var(--light-gold); color: #92400e; }
+.tag-purple{ background-color: #ede9fe; color: #5b21b6; }
+
+/* ==========================================
+   IMPACT SECTION
+   ========================================== */
+#impact {
+  background-color: var(--dark-green);
+  color: white;
+  text-align: center;
+}
+
+#impact .label {
+  background-color: rgba(201, 151, 58, 0.2);
+  color: #f0cc70;
+}
+
+#impact .section-heading {
+  color: white;
+}
+
+#impact .section-heading .accent {
+  color: var(--gold);
+}
+
+#impact .section-sub {
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0 auto 50px;
+}
+
+.impact-cards {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.impact-box {
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  padding: 28px 20px;
+  /* hover doesn't work without transition */
+  transition: background-color 0.2s;
+}
+
+.impact-box:hover {
+  background-color: rgba(255, 255, 255, 0.14);
+}
+
+.impact-box .ico {
+  font-size: 1.8rem;
+  margin-bottom: 12px;
+}
+
+.impact-box h4 {
+  font-size: 1rem;
+  margin-bottom: 8px;
+  font-family: Georgia, serif;
+}
+
+.impact-box p {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.65);
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* ==========================================
+   GALLERY
+   ========================================== */
+#gallery {
+  background-color: #ffffff;
+}
+
+.gallery-top {
+  max-width: 1080px;
+  margin: 0 auto 36px;
+}
+
+/* simple photo grid */
+.photo-grid {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 220px 220px;
+  gap: 10px;
+}
+
+/* first image is bigger */
+.photo-grid .photo:first-child {
+  grid-column: span 1;
+  grid-row: span 2;
+}
+
+.photo {
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s;
+}
+
+.photo img:hover {
+  transform: scale(1.05);
+}
+
+/* ==========================================
+   CALL TO ACTION
+   ========================================== */
+#cta {
+  background-color: var(--bg);
+}
+
+.cta-box {
+  max-width: 1060px;
+  margin: 0 auto;
+  background-color: var(--main-green);
+  border-radius: 14px;
+  padding: 60px 44px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 36px;
+  flex-wrap: wrap;
+  /* subtle ring around the box */
+  outline: 3px solid var(--gold);
+  outline-offset: 5px;
+}
+
+.cta-left h2 {
+  font-size: 1.9rem;
+  color: white;
+  font-family: Georgia, serif;
+  margin-bottom: 12px;
+}
+
+.cta-left p {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.78);
+  font-family: Arial, sans-serif;
+  max-width: 440px;
+  line-height: 1.7;
+}
+
+.cta-right {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 170px;
+}
+
+.cta-btn-gold {
+  background-color: var(--gold);
+  color: #111;
+  padding: 13px 28px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  text-decoration: none;
+  text-align: center;
+  font-size: 0.92rem;
+}
+
+.cta-btn-gold:hover {
+  background-color: #b8842a;
+}
+
+.cta-btn-white {
+  background-color: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: white;
+  padding: 12px 28px;
+  border-radius: 6px;
+  font-family: Arial, sans-serif;
+  text-decoration: none;
+  text-align: center;
+  font-size: 0.92rem;
+}
+
+.cta-btn-white:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.cta-link {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.82rem;
+  text-align: center;
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+}
+
+.cta-link:hover {
+  color: white;
+}
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+footer {
+  background-color: #0d1f13;
+  color: rgba(255, 255, 255, 0.6);
+  padding: 52px 20px 28px;
+}
+
+.footer-grid {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 44px;
+  padding-bottom: 36px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-logo {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: white;
+  font-family: Georgia, serif;
+  margin-bottom: 12px;
+}
+
+.footer-logo span {
+  color: var(--gold);
+}
+
+.footer-about p {
+  font-size: 0.85rem;
+  line-height: 1.7;
+  font-family: Arial, sans-serif;
+  max-width: 270px;
+}
+
+/* social icons row */
+.socials {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.soc-btn {
+  width: 34px;
+  height: 34px;
+  background-color: rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.soc-btn:hover {
+  background-color: var(--gold);
+}
+
+.footer-col h5 {
+  font-size: 0.83rem;
+  font-weight: bold;
+  color: white;
+  font-family: Arial, sans-serif;
+  margin-bottom: 14px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.footer-col ul {
+  list-style: none;
+}
+
+.footer-col ul li {
+  margin-bottom: 9px;
+}
+
+.footer-col ul li a {
+  color: rgba(255, 255, 255, 0.52);
+  font-size: 0.85rem;
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+}
+
+.footer-col ul li a:hover {
+  color: var(--gold);
+}
+
+.footer-bottom {
+  max-width: 1080px;
+  margin: 24px auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 0.78rem;
+  font-family: Arial, sans-serif;
+}
+
+.footer-bottom a {
+  color: var(--gold);
+  text-decoration: none;
+}
+
+/* hashtag row at very bottom – my own touch */
+.hashtags {
+  text-align: center;
+  margin-top: 14px;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.3);
+  font-family: Arial, sans-serif;
+  letter-spacing: 1px;
+}
+
+/* ==========================================
+   RESPONSIVE – keeping it simple
+   ========================================== */
+@media (max-width: 860px) {
+  nav {
+    padding: 12px 20px;
+  }
+
+  .nav-links {
+    display: none; /* I'll add a hamburger later maybe */
+  }
+
+  .about-wrapper {
+    flex-direction: column;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .impact-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .cta-box {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 28px;
+  }
+
+  .cta-left p {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 560px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .impact-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .photo-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+
+  .photo-grid .photo:first-child {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .stat-box {
+    padding: 20px 22px;
+  }
+}
