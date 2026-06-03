@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>InAmigos Foundation — NGO Website Feature Highlights</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; background: #F8F7F4; color: #1A1A1A; line-height: 1.5; }
+  .page { max-width: 900px; margin: 0 auto; padding: 40px 32px; }
+
+  /* Cover */
+  .cover { background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 50%, #185FA5 100%); border-radius: 16px; padding: 48px 40px 40px; margin-bottom: 32px; color: white; display: flex; justify-content: space-between; align-items: flex-end; }
+  .cover-left {}
+  .cover-badge { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); border-radius: 20px; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 12px; margin-bottom: 16px; }
+  .cover-title { font-family: 'Playfair Display', serif; font-size: 38px; font-weight: 700; line-height: 1.2; margin-bottom: 10px; }
+  .cover-sub { font-size: 15px; opacity: 0.85; margin-bottom: 20px; }
+  .cover-meta { display: flex; gap: 20px; }
+  .cover-meta-item { font-size: 12px; opacity: 0.7; }
+  .cover-meta-item strong { display: block; font-size: 18px; font-weight: 600; opacity: 1; }
+  .cover-right { text-align: right; }
+  .cover-logo { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; opacity: 0.9; }
+  .cover-url { font-size: 11px; opacity: 0.6; margin-top: 4px; }
+
+  /* Intro row */
+  .intro-note { background: #FFF8ED; border: 1px solid #F5C56A; border-radius: 10px; padding: 14px 18px; margin-bottom: 28px; font-size: 13px; color: #6B4B0A; display: flex; gap: 12px; align-items: flex-start; }
+  .intro-note-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+
+  /* Feature card */
+  .feature-card { background: white; border: 1px solid #E8E5DF; border-radius: 14px; margin-bottom: 28px; overflow: hidden; }
+  .feature-header { padding: 18px 24px 0; display: flex; align-items: center; gap: 14px; }
+  .feature-number { background: #1D9E75; color: white; font-size: 11px; font-weight: 600; border-radius: 20px; padding: 3px 12px; letter-spacing: 0.04em; white-space: nowrap; }
+  .feature-number.blue { background: #185FA5; }
+  .feature-number.amber { background: #BA7517; }
+  .feature-number.coral { background: #993C1D; }
+  .feature-number.purple { background: #534AB7; }
+  .feature-chip { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 20px; letter-spacing: 0.04em; }
+  .chip-green { background: #EAF3DE; color: #3B6D11; }
+  .chip-blue { background: #E6F1FB; color: #185FA5; }
+  .chip-amber { background: #FAEEDA; color: #854F0B; }
+  .chip-coral { background: #FAECE7; color: #993C1D; }
+  .chip-purple { background: #EEEDFE; color: #534AB7; }
+  .feature-body { padding: 14px 24px; }
+  .feature-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: #111; margin: 8px 0 6px; }
+  .feature-desc { font-size: 13px; color: #666; margin-bottom: 16px; }
+
+  /* Mock UI elements */
+  .mock-hero { background: linear-gradient(120deg, #EAF3DE, #E6F1FB); border-radius: 10px; padding: 20px 22px; margin-bottom: 14px; display: flex; gap: 20px; }
+  .mock-hero-left { flex: 1; }
+  .mock-hero-title { font-family: 'Playfair Display', serif; font-size: 20px; color: #27500A; margin-bottom: 6px; }
+  .mock-hero-sub { font-size: 12px; color: #3B6D11; margin-bottom: 14px; }
+  .btn { display: inline-block; font-size: 12px; font-weight: 500; padding: 7px 16px; border-radius: 6px; margin-right: 8px; margin-bottom: 8px; text-decoration: none; }
+  .btn-green { background: #1D9E75; color: white; }
+  .btn-outline-green { background: transparent; border: 1.5px solid #1D9E75; color: #1D9E75; }
+  .btn-blue { background: #185FA5; color: white; }
+  .btn-amber { background: #BA7517; color: white; }
+  .btn-coral { background: #993C1D; color: white; }
+  .btn-purple { background: #534AB7; color: white; }
+  .donation-widget { background: white; border-radius: 10px; padding: 14px; min-width: 170px; border: 1px solid #E8E5DF; }
+  .donation-widget p { font-size: 11px; color: #888; margin-bottom: 4px; }
+  .donation-amount { font-size: 20px; font-weight: 600; color: #1D9E75; margin-bottom: 4px; }
+  .progress-wrap { background: #E5E5E5; border-radius: 4px; height: 6px; margin: 6px 0; }
+  .progress-fill { height: 6px; border-radius: 4px; }
+  .progress-green { background: #1D9E75; }
+  .progress-blue { background: #185FA5; }
+  .progress-amber { background: #BA7517; }
+  .progress-meta { font-size: 10px; color: #999; margin-bottom: 10px; }
+  .amount-btns { display: flex; gap: 5px; flex-wrap: wrap; }
+  .amount-btn { font-size: 11px; padding: 4px 9px; border-radius: 5px; background: #EAF3DE; color: #3B6D11; font-weight: 500; border: 1px solid #1D9E75; }
+
+  .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 12px; }
+  .stat-box { background: #F5F4F0; border-radius: 10px; padding: 14px 12px; text-align: center; }
+  .stat-icon { font-size: 22px; margin-bottom: 6px; }
+  .stat-number { font-size: 20px; font-weight: 600; color: #111; margin-bottom: 2px; }
+  .stat-label { font-size: 11px; color: #888; }
+
+  .breakdown { margin-bottom: 4px; }
+  .breakdown-row { display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: #555; margin-bottom: 6px; }
+  .breakdown-bar-wrap { background: #EBEBEB; border-radius: 4px; height: 6px; margin: 2px 0 8px; }
+
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
+  .form-field { }
+  .form-label { font-size: 12px; color: #666; margin-bottom: 4px; display: block; }
+  .form-input { width: 100%; background: #F5F4F0; border: 1px solid #E0DDD5; border-radius: 6px; padding: 8px 10px; font-size: 12px; color: #444; }
+  .tag-list { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 12px; }
+  .tag { font-size: 11px; padding: 3px 9px; border-radius: 12px; background: #F5F4F0; color: #666; border: 1px solid #E0DDD5; }
+  .tag-active { background: #EAF3DE; color: #3B6D11; border-color: #1D9E75; }
+  .tag-active-blue { background: #E6F1FB; color: #185FA5; border-color: #185FA5; }
+
+  .event-list { margin-bottom: 10px; }
+  .event-row { display: flex; gap: 14px; align-items: flex-start; padding: 10px 0; border-bottom: 1px solid #F0EDE6; }
+  .event-row:last-child { border-bottom: none; }
+  .event-date { background: #1D9E75; color: white; border-radius: 8px; padding: 6px 10px; text-align: center; min-width: 44px; }
+  .event-date.blue { background: #185FA5; }
+  .event-month { font-size: 10px; font-weight: 600; letter-spacing: 0.06em; }
+  .event-day { font-size: 20px; font-weight: 600; line-height: 1; }
+  .event-title { font-size: 13px; font-weight: 500; color: #111; margin-bottom: 3px; }
+  .event-meta { font-size: 11px; color: #888; margin-bottom: 6px; }
+
+  .testimonial-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
+  .testimonial-card { background: #F5F4F0; border-radius: 10px; padding: 14px; }
+  .testimonial-text { font-size: 12px; color: #444; font-style: italic; margin-bottom: 10px; line-height: 1.6; }
+  .testimonial-footer { display: flex; align-items: center; gap: 8px; }
+  .avatar { width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; color: white; flex-shrink: 0; }
+  .avatar-purple { background: #534AB7; }
+  .avatar-blue { background: #185FA5; }
+  .testimonial-name { font-size: 12px; font-weight: 600; color: #111; }
+  .testimonial-role { font-size: 11px; color: #888; }
+  .stars { color: #BA7517; font-size: 12px; margin-left: auto; }
+
+  /* Annotation box */
+  .annotation { border-left: 3px solid #1D9E75; background: #F2FAF6; border-radius: 0 8px 8px 0; padding: 10px 14px; margin-top: 14px; }
+  .annotation.blue { border-left-color: #185FA5; background: #EEF5FD; }
+  .annotation.amber { border-left-color: #BA7517; background: #FDF6ED; }
+  .annotation.coral { border-left-color: #993C1D; background: #FDF2EE; }
+  .annotation.purple { border-left-color: #534AB7; background: #F2F1FE; }
+  .annotation-label { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #999; margin-bottom: 4px; }
+  .annotation-text { font-size: 12px; color: #444; line-height: 1.6; }
+
+  /* Summary */
+  .summary { background: white; border: 1px solid #E8E5DF; border-radius: 14px; padding: 22px 24px; margin-top: 8px; }
+  .summary-title { font-family: 'Playfair Display', serif; font-size: 18px; margin-bottom: 14px; }
+  .summary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .summary-item { display: flex; gap: 10px; align-items: flex-start; }
+  .summary-check { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+  .summary-text { font-size: 13px; color: #555; }
+
+  .divider { border: none; border-top: 1px solid #EEEAE3; margin: 28px 0; }
+
+  .footer-note { text-align: center; font-size: 11px; color: #aaa; margin-top: 28px; padding-bottom: 8px; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Cover -->
+  <div class="cover">
+    <div class="cover-left">
+      <div class="cover-badge">Figma Task 4 — NGO Website Design</div>
+      <div class="cover-title">NGO Website<br>Feature Highlights</div>
+      <div class="cover-sub">5 key features identified & designed for InAmigos Foundation</div>
+      <div class="cover-meta">
+        <div class="cover-meta-item"><strong>5</strong>Features Designed</div>
+        <div class="cover-meta-item"><strong>2026</strong>Task Submission</div>
+        <div class="cover-meta-item"><strong>UX</strong>Focus: Clarity & Impact</div>
+      </div>
+    </div>
+    <div class="cover-right">
+      <div class="cover-logo">InAmigos Foundation</div>
+      <div class="cover-url">inamigosfoundation.org.in</div>
+    </div>
+  </div>
+
+  <!-- Intro note -->
+  <div class="intro-note">
+    <div class="intro-note-icon">📋</div>
+    <div>
+      <strong>Objective:</strong> This document identifies 5 essential features that should be present on the InAmigos Foundation website. Each section includes an annotated visual layout and implementation notes explaining why the feature matters for an NGO website.
+    </div>
+  </div>
+
+  <!-- Feature 1: Hero + Donation CTA -->
+  <div class="feature-card">
+    <div class="feature-header">
+      <span class="feature-number">Feature 1</span>
+      <span class="feature-chip chip-green">💚 Donation Section with Hero CTA</span>
+    </div>
+    <div class="feature-body">
+      <div class="feature-title">Hero Banner + Embedded Donation Widget</div>
+      <div class="feature-desc">The homepage hero should combine an emotional message with a frictionless donation experience — goal progress, preset amounts, and a single-click payment path.</div>
+
+      <div class="mock-hero">
+        <div class="mock-hero-left">
+          <div class="mock-hero-title">Be the Change.<br>Donate Today.</div>
+          <div class="mock-hero-sub">Every rupee fuels education, food & animal rescue across 28 states.</div>
+          <span class="btn btn-green">💚 Donate Now</span>
+          <span class="btn btn-outline-green">Learn More</span>
+        </div>
+        <div class="donation-widget">
+          <p>Raised this month</p>
+          <div class="donation-amount">₹2,40,000+</div>
+          <div class="progress-wrap"><div class="progress-fill progress-green" style="width:72%"></div></div>
+          <div class="progress-meta">72% of ₹3,30,000 goal</div>
+          <div class="amount-btns">
+            <span class="amount-btn">₹500</span>
+            <span class="amount-btn">₹1000</span>
+            <span class="amount-btn">₹2000</span>
+            <span class="amount-btn">Custom</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="annotation">
+        <div class="annotation-label">🎯 Why This Feature Matters</div>
+        <div class="annotation-text">A compelling hero with an embedded donation widget reduces friction — visitors can donate in one click without navigating away. Quick-amount buttons (₹500, ₹1000, ₹2000) paired with a live progress bar create urgency and social proof. Currently, the InAmigos site redirects to Razorpay externally; an embedded widget on the homepage can significantly boost conversion rates.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Feature 2: Impact Stats -->
+  <div class="feature-card">
+    <div class="feature-header">
+      <span class="feature-number blue">Feature 2</span>
+      <span class="feature-chip chip-blue">📊 Impact Stats & Showcase</span>
+    </div>
+    <div class="feature-body">
+      <div class="feature-title">Animated Impact Numbers & Fund Breakdown</div>
+      <div class="feature-desc">Real numbers build donor trust. A visual stats section shows exactly where contributions go, reinforced by certifications and project-wise fund distribution.</div>
+
+      <div class="stats-grid">
+        <div class="stat-box">
+          <div class="stat-icon">👥</div>
+          <div class="stat-number" style="color:#185FA5;">50,000+</div>
+          <div class="stat-label">Beneficiaries Reached</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-icon">📍</div>
+          <div class="stat-number" style="color:#1D9E75;">28</div>
+          <div class="stat-label">States Covered</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-icon">🤝</div>
+          <div class="stat-number" style="color:#BA7517;">200+</div>
+          <div class="stat-label">Active Volunteers</div>
+        </div>
+      </div>
+
+      <div class="breakdown">
+        <div class="breakdown-row"><span>Project Bachpanshala (Education)</span><span style="font-weight:600;">38%</span></div>
+        <div class="breakdown-bar-wrap"><div class="progress-fill progress-blue" style="width:38%"></div></div>
+        <div class="breakdown-row"><span>Project Seva (Food & Clothing)</span><span style="font-weight:600;">27%</span></div>
+        <div class="breakdown-bar-wrap"><div class="progress-fill progress-green" style="width:27%"></div></div>
+        <div class="breakdown-row"><span>Project Udaan (Women Empowerment)</span><span style="font-weight:600;">22%</span></div>
+        <div class="breakdown-bar-wrap"><div class="progress-fill progress-amber" style="width:22%"></div></div>
+        <div class="breakdown-row"><span>Project Jeev + Prakriti</span><span style="font-weight:600;">13%</span></div>
+        <div class="breakdown-bar-wrap"><div class="progress-fill" style="width:13%; background:#534AB7;"></div></div>
+      </div>
+
+      <div class="annotation blue">
+        <div class="annotation-label">🎯 Why This Feature Matters</div>
+        <div class="annotation-text">Animated counters and project-wise fund distribution charts make donors feel accountable and proud. InAmigos holds 80G, 12A, ISO 9001:2015, NITI Aayog, and CSR-1 certifications — displaying these as trust badges next to the impact numbers dramatically improves donor confidence and helps close first-time donations.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Feature 3: Volunteer Form -->
+  <div class="feature-card">
+    <div class="feature-header">
+      <span class="feature-number amber">Feature 3</span>
+      <span class="feature-chip chip-amber">🙌 Volunteer Sign-Up Form</span>
+    </div>
+    <div class="feature-body">
+      <div class="feature-title">Embedded In-Page Volunteer Registration</div>
+      <div class="feature-desc">An easy, branded in-page volunteer form lowers the barrier for community participation and eliminates the drop-off caused by external redirects.</div>
+
+      <div class="form-grid">
+        <div class="form-field">
+          <label class="form-label">Full Name</label>
+          <div class="form-input">Priya Sharma</div>
+        </div>
+        <div class="form-field">
+          <label class="form-label">City / State</label>
+          <div class="form-input">Indore, Madhya Pradesh</div>
+        </div>
+        <div class="form-field">
+          <label class="form-label">Email Address</label>
+          <div class="form-input">priya@email.com</div>
+        </div>
+        <div class="form-field">
+          <label class="form-label">Mobile Number</label>
+          <div class="form-input">+91 9876 543 210</div>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 8px; font-size:12px; color:#666;">Areas of Interest (select all that apply)</div>
+      <div class="tag-list">
+        <span class="tag tag-active">Education</span>
+        <span class="tag tag-active-blue">Animal Welfare</span>
+        <span class="tag">Environment</span>
+        <span class="tag">Women Empowerment</span>
+        <span class="tag">Food Distribution</span>
+        <span class="tag">Skill Development</span>
+      </div>
+      <span class="btn btn-amber">✉ Join as Volunteer</span>
+
+      <div class="annotation amber">
+        <div class="annotation-label">🎯 Why This Feature Matters</div>
+        <div class="annotation-text">Currently, the volunteer button on InAmigos redirects to an external Google Form. An embedded, branded form keeps users on-site, improves completion rates, and allows the foundation to store data directly. Interest tagging also enables the team to match volunteers to the right projects (Jeev, Udaan, Prakriti, etc.) automatically.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Feature 4: Campaigns & Events -->
+  <div class="feature-card">
+    <div class="feature-header">
+      <span class="feature-number coral">Feature 4</span>
+      <span class="feature-chip chip-coral">📅 Active Campaigns & Events Calendar</span>
+    </div>
+    <div class="feature-body">
+      <div class="feature-title">Dynamic Campaigns with Event Registration</div>
+      <div class="feature-desc">Timely campaigns and a filterable events calendar keep donors and volunteers engaged throughout the year and create urgency to act.</div>
+
+      <div class="event-list">
+        <div class="event-row">
+          <div class="event-date">
+            <div class="event-month">JUN</div>
+            <div class="event-day">21</div>
+          </div>
+          <div style="flex:1">
+            <div class="event-title">World Environment Day Drive — Project Prakriti</div>
+            <div class="event-meta">🌱 Tree Plantation Campaign · Bilaspur, Chhattisgarh</div>
+            <div>
+              <span class="btn btn-coral" style="font-size:11px; padding:4px 12px;">Register Now</span>
+              <span class="tag" style="font-size:11px;">30 spots left</span>
+            </div>
+          </div>
+        </div>
+        <div class="event-row">
+          <div class="event-date blue">
+            <div class="event-month">JUL</div>
+            <div class="event-day">10</div>
+          </div>
+          <div style="flex:1">
+            <div class="event-title">Skill Development Workshop — Project Vikas</div>
+            <div class="event-meta">💼 Free Workshop · Online & On-ground · All India</div>
+            <div>
+              <span class="btn btn-blue" style="font-size:11px; padding:4px 12px;">Apply Now</span>
+              <span class="tag" style="font-size:11px; background:#E6F1FB; color:#185FA5; border-color:#185FA5;">Open</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="annotation coral">
+        <div class="annotation-label">🎯 Why This Feature Matters</div>
+        <div class="annotation-text">A dynamic campaign tracker with countdowns and seat limits creates urgency. A filterable events calendar (by cause category) helps supporters find relevant opportunities. Campaigns linked to specific projects (Prakriti, Jeev, Udaan) help donors contribute to causes they care about most — and an RSVP system builds a pipeline of engaged volunteers for each event.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Feature 5: Testimonials -->
+  <div class="feature-card">
+    <div class="feature-header">
+      <span class="feature-number purple">Feature 5</span>
+      <span class="feature-chip chip-purple">💬 Testimonials & Social Proof</span>
+    </div>
+    <div class="feature-body">
+      <div class="feature-title">Beneficiary, Volunteer & Donor Stories</div>
+      <div class="feature-desc">Stories with photos, names, and ratings add authenticity. A well-designed testimonials section covers all audience types and addresses each person's specific motivation for engaging.</div>
+
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-text">"Because of Bachpanshala, my daughter now attends school regularly. We never thought education was possible for us. InAmigos changed that."</div>
+          <div class="testimonial-footer">
+            <div class="avatar avatar-purple">SK</div>
+            <div>
+              <div class="testimonial-name">Sunita K.</div>
+              <div class="testimonial-role">Beneficiary · Chhattisgarh</div>
+            </div>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-text">"Volunteering with Project Jeev over three weekends gave me more fulfillment than anything else this year. The team is incredibly organized."</div>
+          <div class="testimonial-footer">
+            <div class="avatar avatar-blue">RV</div>
+            <div>
+              <div class="testimonial-name">Rahul V.</div>
+              <div class="testimonial-role">Volunteer · Mumbai</div>
+            </div>
+            <div class="stars">★★★★☆</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="annotation purple">
+        <div class="annotation-label">🎯 Why This Feature Matters</div>
+        <div class="annotation-text">Testimonials with photos/avatars, a name, location, and star rating add credibility and authenticity. A rotating carousel or 2-column grid covering beneficiaries, volunteers, and corporate donors addresses all three audience types visiting the site. Social proof is one of the strongest conversion drivers for NGO websites — visitors who see real stories are far more likely to donate or volunteer.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Summary -->
+  <div class="summary">
+    <div class="summary-title">Feature Summary — InAmigos Foundation Website</div>
+    <div class="summary-grid">
+      <div class="summary-item">
+        <div class="summary-check" style="color:#1D9E75;">✅</div>
+        <div class="summary-text"><strong>Feature 1:</strong> Hero banner + embedded donation widget with progress bar and quick-amount buttons</div>
+      </div>
+      <div class="summary-item">
+        <div class="summary-check" style="color:#185FA5;">✅</div>
+        <div class="summary-text"><strong>Feature 2:</strong> Animated impact stats and project-wise fund breakdown with certification trust badges</div>
+      </div>
+      <div class="summary-item">
+        <div class="summary-check" style="color:#BA7517;">✅</div>
+        <div class="summary-text"><strong>Feature 3:</strong> Embedded volunteer sign-up form with interest tagging (replaces Google Form redirect)</div>
+      </div>
+      <div class="summary-item">
+        <div class="summary-check" style="color:#993C1D;">✅</div>
+        <div class="summary-text"><strong>Feature 4:</strong> Active campaigns calendar with RSVP, seat-limit indicators, and cause filters</div>
+      </div>
+      <div class="summary-item" style="grid-column: 1 / -1;">
+        <div class="summary-check" style="color:#534AB7;">✅</div>
+        <div class="summary-text"><strong>Feature 5:</strong> Testimonials section with stories from beneficiaries, volunteers, and donors in a card grid layout</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    Designed for InAmigos Foundation · inamigosfoundation.org.in · Task 4 — NGO Website Feature Highlights · 2026
+  </div>
+
+</div>
+</body>
+</html>
