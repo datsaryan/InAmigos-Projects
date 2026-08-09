@@ -13,7 +13,7 @@
 <!-- Badges -->
 [![Intern at InAmigos](https://img.shields.io/badge/Intern%20@-InAmigos-6E56CF?style=for-the-badge&logo=briefcase&logoColor=white)](https://github.com/datsaryan)
 [![Role](https://img.shields.io/badge/Role-Web%20Developer-0ea5e9?style=for-the-badge&logo=code&logoColor=white)](#)
-[![Status](https://img.shields.io/badge/Status-Active-22c55e?style=for-the-badge&logo=statuspage&logoColor=white)](#)
+[![Status](https://img.shields.io/badge/Status-Completed-22c55e?style=for-the-badge&logo=statuspage&logoColor=white)](#)
 
 </div>
 
